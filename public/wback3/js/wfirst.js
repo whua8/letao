@@ -79,7 +79,7 @@ $("#form").on("success.form.bv",function(e){
         currentPage = 1;
         render();
 
-        $("#form").data('bootstrapValidator').reset(true);
+        $("#form").data('bootstrapValidator').resetForm(true);
       }
     }
 
