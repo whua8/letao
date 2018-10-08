@@ -26,7 +26,7 @@
   <!-- 导航 -->
   <div class="nav">
     <ul>
-      <li><a href="user.html" class="current"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+      <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
       <li>
         <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
         <div class="child" style="display: none">
@@ -59,37 +59,14 @@
     <!-- 面包屑导航, 路径导航 -->
     <ol class="breadcrumb">
       <li><a href="index.html">管理系统</a></li>
-      <li class="active">用户管理</li>
+      <li class="active">首页</li>
     </ol>
 
-
     <div class="lt_content">
-      <!-- 表格
-           1. table-bordered  添加边框
-           2. table-hover     添加hover效果
-      -->
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>序号</th>
-            <th>用户名</th>
-            <th>手机号</th>
-            <th>状态</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- 多行操作: 滚轮往下, 选中多行, ctrl + shift + -> 选中单个词 -->
-          <!-- 挖个坑 -->
-        </tbody>
-      </table>
+      <!-- 给 echarts 准备具备宽高的容器 -->
+      <div class="echarts_1 pull-left"></div>
 
-
-      <div class="text-right">
-        <!-- 3.x 的版本需要准备 ul -->
-        <ul id="paginator"></ul>
-      </div>
-
+      <div class="echarts_2 pull-right"></div>
 
     </div>
 
@@ -124,33 +101,6 @@
   </div>
 </div>
 
-<!-- 准备模板 -->
-<!-- type 类型写成 text/html 和 text/template 都可以说明, 该script为模板 -->
-<script type="text/html" id="tpl">
-  {{ each rows v i }}
-    <tr>
-      <td>{{ i + 1 + (page-1) * size }}</td>
-      <td>{{ v.username }}</td>
-      <td>{{ v.mobile }}</td>
-      <!-- isDelete 标记当前用户的状态
-           如果为 1, 已启用
-           如果为 0, 已禁用
-      -->
-      <td>{{ v.isDelete === 1 ? "正常" : "已禁用" }}</td>
-
-      <td>
-        {{ if v.isDelete === 1 }}
-          <button class="btn btn-danger">禁用</button>
-        {{ /if }}
-
-        {{ if v.isDelete === 0 }}
-          <button class="btn btn-success">启用</button>
-        {{ /if }}
-      </td>
-    </tr>
-  {{ /each }}
-</script>
-
 
 
 
@@ -158,11 +108,10 @@
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
-<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
-<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/echarts/echarts.min.js"></script>
 <script src="./js/checkLogin.js"></script>
 <script src="./js/common.js"></script>
-<script src="./js/user.js"></script>
+<script src="./js/index.js"></script>
 
 </body>
 </html>
